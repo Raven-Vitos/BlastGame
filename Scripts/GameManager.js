@@ -5,7 +5,7 @@ const Game = {
 
   Start: function () {
     this.scene = new Scene(this.sizeH, this.sizeW);
-    UI.init(10)
+    UI.init(5, 20)
 
     for (let h = 0; h < this.sizeH; h++) {
       for (let w = 0; w < this.sizeW; w++) {
@@ -27,7 +27,9 @@ const Game = {
   Tick: function (deltaTime) {},
 
   MouseClick: function (x, y) {
-    if (!UI.getStep()) return;
+    if (!UI.getStep()) {        
+        return;
+    }
 
     const block = this.scene.getObjectByCoord(x, y);
 

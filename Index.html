@@ -4,9 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="Styles/MainStyle.css">
+    <link rel="stylesheet" href="Styles/ModalWindow.css">
     <title>Blast Game</title>
   </head>
   <body>
+    <!-- Modal Window-->
+    <div id="modal-window" class="modal">
+        <div class="modal-content">
+        <span class="close">&times;</span>
+        <p id="result-game">...</p>
+        </div>    
+    </div>
+
     <h1>Blast Game</h1>
     <div id="main">
         <div id="grid">
@@ -19,6 +28,7 @@
         </div>        
     </div>
     
+    <script src="Scripts/ModalWindow.js"></script>
     <script src="Scripts/UI.js"></script>
     <script src="Scripts/Physics.js"></script>
     <script src="Scripts/Helper.js"></script>
