@@ -16,7 +16,7 @@ html {
 #grid {
     display: inline;
     padding: 10px;
-    background-image: url(/Assets/Images/BG.png);
+    background-image: url("/Assets/Images/BG.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 86% 100%;
