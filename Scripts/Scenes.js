@@ -81,8 +81,21 @@ class Scene {
   }
 
   convertCoordToIndexes(x, y) {
-    let indexX = Math.ceil(x / (this.blockWidth * this.blockScale)) - 1
-    let indexY = Math.ceil((y + this.offsetY) / (this.blockHeight * this.blockScale)) - 1
+    let indexX = -1
+    let indexY = -1
+
+    for (let h = 0; h < this.height; h++) {
+      for (let w = 0; w < this.width; w++) {
+        const block = this.sceneObjects[h][w];
+        if (block.x <= x && block.x + block.w >= x && 
+            block.y <= y && block.y + block.h >= y) {
+          indexX = block.ix
+          indexY = block.iy
+
+          return {x: indexX, y: indexY}
+        }
+      }
+    }
 
     return {x: indexX, y: indexY}
   }

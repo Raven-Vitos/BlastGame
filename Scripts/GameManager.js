@@ -1,10 +1,11 @@
 const Game = {
   scene: undefined,
-  sizeH: 5,
-  sizeW: 7,
+  sizeH: 6,
+  sizeW: 5,
 
   Start: function () {
     this.scene = new Scene(this.sizeH, this.sizeW);
+    UI.init(10)
 
     for (let h = 0; h < this.sizeH; h++) {
       for (let w = 0; w < this.sizeW; w++) {
@@ -26,11 +27,15 @@ const Game = {
   Tick: function (deltaTime) {},
 
   MouseClick: function (x, y) {
+    if (!UI.getStep()) return;
+
     const block = this.scene.getObjectByCoord(x, y);
 
     this.checkRemoveCount(block);
 
     this.reloadGrid();
+
+    this.calcScore();
 
     this.spawnBlocks();
   },
@@ -134,6 +139,18 @@ const Game = {
         }
     }
 
+  },
+
+  calcScore: function() {
+    let score = 0
+    for (let w = 0; w < this.scene.width; w++) {
+        for (let h = 0; h < this.scene.height; h++) {
+            const block = this.scene.sceneObjects[h][w];
+            if (block == undefined) score++;
+        }
+    }
+
+    if (score) UI.Update(score);
   },
 
   spawnBlocks: function() {

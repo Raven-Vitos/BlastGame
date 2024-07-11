@@ -7,10 +7,19 @@
     <title>Blast Game</title>
   </head>
   <body>
+    <h1>Blast Game</h1>
     <div id="main">
-        <canvas width="100" height="100" id="viewport"></canvas>
-    </div>  
+        <div id="grid">
+            <canvas width="100" height="100" id="viewport"></canvas>
+        </div>  
+        <div >
+            <img id="panel" src="Assets/Images/Panel.png" alt="">
+            <p id="step">0</p>
+            <p id="score">0</p>
+        </div>        
+    </div>
     
+    <script src="Scripts/UI.js"></script>
     <script src="Scripts/Physics.js"></script>
     <script src="Scripts/Helper.js"></script>
     <script src="Scripts/Blocks.js"></script>

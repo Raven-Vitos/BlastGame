@@ -1,6 +1,31 @@
+@font-face {
+    font-family: Marvin;
+    src: url("/Assets/Fonts/Marvin.ttf");
+}
+
+html {
+    font-family: Marvin;
+}
+
 :root, body {
     margin: 0%;
     padding: 0%;
+    background-color: #9b9b9b;
+}
+
+#grid {
+    display: inline;
+    padding: 10px;
+    background-image: url(/Assets/Images/BG.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 86% 100%;
+    width: 500px;
+}
+
+#viewport {
+    display: block;
+    margin: auto;
 }
 
 #main {
@@ -8,6 +33,31 @@
     justify-content: center;
 }
 
-#viewport {
-    
+#panel {
+    display: inline;
+    width: 200px;
+    height: 200px;
+}
+
+#step {
+    position: relative;
+    top: -230px;
+    font-size: 50px;
+    text-align: center;
+    color: white;
+}
+
+#score {
+    position: relative;
+    font-size: 25px;
+    top: -233px;
+    text-align: center;
+    color: white; 
+}
+
+h1 {
+    text-align: center;
+    color: white; 
+    text-shadow: -2px -2px 2px rgba(255, 255, 255, .1), 
+    2px 2px 2px rgba(0, 0, 0, .5);
 }
