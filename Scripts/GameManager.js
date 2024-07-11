@@ -31,6 +31,8 @@ const Game = {
     this.checkRemoveCount(block);
 
     this.reloadGrid();
+
+    this.spawnBlocks();
   },
 
   checkRemoveCount: function (block) {
@@ -133,4 +135,29 @@ const Game = {
     }
 
   },
+
+  spawnBlocks: function() {
+    for (let w = 0; w < this.scene.width; w++) {
+        let need_blocks = 0;
+  
+        for (let h = 0; h < this.scene.height; h++) {
+            const block = this.scene.sceneObjects[h][w];
+            if (block) break;
+            if (block == undefined) need_blocks++;
+        }
+
+        for (let i = 1; i <= need_blocks; i++)
+        {
+            let blockX = w * this.scene.blockWidth * this.scene.blockScale;
+            let blockY = (i - 1) * this.scene.blockHeight * this.scene.blockScale - (i - 1) * this.scene.offsetY;
+    
+            let blockW = this.scene.blockWidth * this.scene.blockScale;
+            let blockH = this.scene.blockHeight * this.scene.blockScale;
+
+            const new_block = new Block(blockX, blockY - (need_blocks * blockH), w, (i - 1), blockW, blockH, getRandomInt(0, 4))
+            new_block.physics.updateData()
+            this.scene.sceneObjects[i - 1][w] = new_block
+        }
+    }
+  }
 };
