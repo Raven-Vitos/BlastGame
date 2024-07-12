@@ -17,11 +17,15 @@ const UI = {
 
         this.scoreView.innerText = this.score
         this.stepView.innerText = this.step
+
+        UIProgress.init()
     },
 
     Update: function(score) {
         this.score += score
         this.step --;
+
+        UIProgress.set_value(this.score / this.need_score)
         
         this.scoreView.innerText = this.score
         this.stepView.innerText = this.step

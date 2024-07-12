@@ -10,7 +10,7 @@ html {
 :root, body {
     margin: 0%;
     padding: 0%;
-    background-color: #9b9b9b;
+    background-color: #5ebcf3;
 }
 
 #grid {
@@ -60,4 +60,17 @@ h1 {
     color: white; 
     text-shadow: -2px -2px 2px rgba(255, 255, 255, .1), 
     2px 2px 2px rgba(0, 0, 0, .5);
+    margin: 30px;
+}
+
+#header {
+    display: flex;
+    justify-content: center;
+}
+
+#progress-panel {
+    display: inline;
+    margin-left: 40px;
+    position: relative;
+    top: -20px;
 }

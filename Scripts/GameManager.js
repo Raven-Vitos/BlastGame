@@ -5,7 +5,7 @@ const Game = {
 
   Start: function () {
     this.scene = new Scene(this.sizeH, this.sizeW);
-    UI.init(5, 20)
+    UI.init(5, 30)
 
     for (let h = 0; h < this.sizeH; h++) {
       for (let w = 0; w < this.sizeW; w++) {
@@ -33,13 +33,33 @@ const Game = {
 
     const block = this.scene.getObjectByCoord(x, y);
 
-    this.checkRemoveCount(block);
+    if (block.index == 5) {
+      this.super_bomb(block);
+    } else {
+      this.checkRemoveCount(block);
+    }    
 
     this.reloadGrid();
 
     this.calcScore();
 
     this.spawnBlocks();
+  },
+
+  super_bomb: function(block) {
+    let block_iX = block.ix;
+    let block_iY = block.iy;
+
+    let radius = 2;
+    for (let r = 0; r <= radius; r++) {
+      for (let deg = 0; deg <= 360; deg += 15) {
+        let rad = (deg / 180.0) * 3.18
+        let x = Math.round(Math.cos(rad) * r)
+        let y = Math.round(Math.sin(rad) * r)
+
+        this.scene.removeObjectByIndex(block_iX + x, block_iY + y);        
+      }
+    }
   },
 
   checkRemoveCount: function (block) {
@@ -173,7 +193,10 @@ const Game = {
             let blockW = this.scene.blockWidth * this.scene.blockScale;
             let blockH = this.scene.blockHeight * this.scene.blockScale;
 
-            const new_block = new Block(blockX, blockY - (need_blocks * blockH), w, (i - 1), blockW, blockH, getRandomInt(0, 4))
+            const siper_block = getRandomInt(1, 10) == 7;
+
+            const new_block = new Block(blockX, blockY - (need_blocks * blockH), w, (i - 1), blockW, blockH, 
+              (siper_block) ? 5 : getRandomInt(0, 4));
             new_block.physics.updateData()
             this.scene.sceneObjects[i - 1][w] = new_block
         }

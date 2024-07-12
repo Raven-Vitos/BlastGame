@@ -19,12 +19,7 @@ class Physics {
   }
 
   update(deltaTime) {
-    this.owner.x = this.easing(this.owner.x, this.x, this.speed, deltaTime);
-    this.owner.y = this.easing(this.owner.y, this.y, this.speed, deltaTime);
-  }
-
-  easing(start_x, end_x, speed, deltaTime) {
-    let x = (end_x - start_x) / speed * deltaTime
-    return start_x + x;
+    this.owner.x = easing(this.owner.x, this.x, this.speed, deltaTime);
+    this.owner.y = easing(this.owner.y, this.y, this.speed, deltaTime);
   }
 }

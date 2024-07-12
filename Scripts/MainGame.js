@@ -30,6 +30,7 @@ function Tick() {
 
   Game.Tick(deltaTime);
   Game.scene.render(deltaTime);
+  UIProgress.render(deltaTime)
 
   requestId = requestAnimationFrame(Tick);
 }

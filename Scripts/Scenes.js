@@ -21,6 +21,10 @@ class Scene {
     image = new Image();
     image.src = "Assets/Images/Blocks/Yellow.png";
     this.images.push(image);
+
+    image = new Image();
+    image.src = "Assets/Images/Blocks/super.png";
+    this.images.push(image);
   }
 
   LoadBlockSettings() {
@@ -61,6 +65,8 @@ class Scene {
   }
 
   removeObjectByIndex(x, y) {
+    if (x >= this.width || x < 0 || y >= this.height || y < 0) return;
+
     delete this.sceneObjects[y][x]
     this.sceneObjects[y][x] = undefined
   }
@@ -107,7 +113,7 @@ class Scene {
     return {x: cx, y: cy}
   }
 
-  render(deltaTime) {
+  render(deltaTime) {   
     this.viewport.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.viewport.globalCompositeOperation = "destination-over";
 
