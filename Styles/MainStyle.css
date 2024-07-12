@@ -1,6 +1,6 @@
 @font-face {
     font-family: Marvin;
-    src: url("/Assets/Fonts/Marvin.ttf");
+    src: url(/Assets/Fonts/Marvin.ttf);
 }
 
 html {
@@ -16,7 +16,7 @@ html {
 #grid {
     display: inline;
     padding: 10px;
-    background-image: url("/Assets/Images/BG.png");
+    background-image: url(/Assets/Images/BG.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: 86% 100%;
