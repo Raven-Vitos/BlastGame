@@ -1,4 +1,9 @@
-const Game = {
+import { Block } from './Blocks.js'
+import { UI } from './UI.js'
+import { Scene } from './Scenes.js'
+import { Util } from './Helper.js'
+
+export const Game = {
   scene: undefined,
   sizeH: 6,
   sizeW: 5,
@@ -18,7 +23,7 @@ const Game = {
         let blockH = this.scene.blockHeight * this.scene.blockScale;
 
         this.scene.addObject(
-          new Block(blockX, blockY, w, h, blockW, blockH, getRandomInt(0, 4))
+          new Block(blockX, blockY, w, h, blockW, blockH, Util.getRandomInt(0, 4))
         );
       }
     }
@@ -193,10 +198,10 @@ const Game = {
             let blockW = this.scene.blockWidth * this.scene.blockScale;
             let blockH = this.scene.blockHeight * this.scene.blockScale;
 
-            const siper_block = getRandomInt(1, 10) == 7;
+            const siper_block = Util.getRandomInt(1, 10) == 7;
 
             const new_block = new Block(blockX, blockY - (need_blocks * blockH), w, (i - 1), blockW, blockH, 
-              (siper_block) ? 5 : getRandomInt(0, 4));
+              (siper_block) ? 5 : Util.getRandomInt(0, 4));
             new_block.physics.updateData()
             this.scene.sceneObjects[i - 1][w] = new_block
         }

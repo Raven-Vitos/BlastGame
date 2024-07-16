@@ -1,3 +1,6 @@
+import { Game } from './GameManager.js'
+import { UIProgress } from './ProgressPanel.js'
+
 var currentTime = Date.now();
 var requestId = 0;
 

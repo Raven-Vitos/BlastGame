@@ -1,4 +1,6 @@
-class Block {
+import { Physics } from './Physics.js'
+
+export class Block {
     constructor(x, y, ix, iy, w, h, index, physics = false) {
         this.x = x
         this.y = y

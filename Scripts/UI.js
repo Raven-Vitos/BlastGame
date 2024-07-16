@@ -1,4 +1,6 @@
-const UI = {  
+import { UIProgress } from './ProgressPanel.js'
+
+export const UI = {  
     scoreView: undefined,
     stepView: undefined,
 
