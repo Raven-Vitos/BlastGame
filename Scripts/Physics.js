@@ -1,12 +1,12 @@
-import { Game } from './GameManager.js'
-import { Util } from './Helper.js'
+import { GameManager } from './GameManager.js'
+import { Helper } from './Helper.js'
 
 export class Physics {
   constructor(owner, speed) {
     this.owner = owner;
     this.speed = speed;
 
-    this.scene = Game.scene;
+    this.scene = GameManager.scene;
 
     this.setCoord(this.owner.x, this.owner.y)
   }
@@ -22,7 +22,7 @@ export class Physics {
   }
 
   update(deltaTime) {
-    this.owner.x = Util.easing(this.owner.x, this.x, this.speed, deltaTime);
-    this.owner.y = Util.easing(this.owner.y, this.y, this.speed, deltaTime);
+    this.owner.x = Helper.easing(this.owner.x, this.x, this.speed, deltaTime);
+    this.owner.y = Helper.easing(this.owner.y, this.y, this.speed, deltaTime);
   }
 }

@@ -1,4 +1,4 @@
-import { UIProgress } from './ProgressPanel.js'
+import { ProgressPanel } from './ProgressPanel.js'
 
 export const UI = {  
     scoreView: undefined,
@@ -20,14 +20,14 @@ export const UI = {
         this.scoreView.innerText = this.score
         this.stepView.innerText = this.step
 
-        UIProgress.init()
+        ProgressPanel.init()
     },
 
     Update: function(score) {
         this.score += score
         this.step --;
 
-        UIProgress.set_value(this.score / this.need_score)
+        ProgressPanel.set_value(this.score / this.need_score)
         
         this.scoreView.innerText = this.score
         this.stepView.innerText = this.step

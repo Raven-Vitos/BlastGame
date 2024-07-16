@@ -1,5 +1,5 @@
-import { Game } from './GameManager.js'
-import { UIProgress } from './ProgressPanel.js'
+import { GameManager } from './GameManager.js'
+import { ProgressPanel } from './ProgressPanel.js'
 
 var currentTime = Date.now();
 var requestId = 0;
@@ -8,7 +8,7 @@ function StartGame(event) {
   const canvas = document.getElementById("viewport");
   canvas.addEventListener("mousedown", (e) => getCursorPosition(canvas, e));
 
-  Game.Start();
+  GameManager.Start();
 
   Tick();
 }
@@ -18,7 +18,7 @@ function getCursorPosition(canvas, e) {
   const x = e.clientX - rect.left;
   const y = e.clientY - rect.top;
 
-  Game.MouseClick(x, y)
+  GameManager.MouseClick(x, y)
 }
 
 function getDeltaTime() {
@@ -31,9 +31,9 @@ function getDeltaTime() {
 function Tick() {
   let deltaTime = getDeltaTime();
 
-  Game.Tick(deltaTime);
-  Game.scene.render(deltaTime);
-  UIProgress.render(deltaTime)
+  GameManager.Tick(deltaTime);
+  GameManager.scene.render(deltaTime);
+  ProgressPanel.render(deltaTime)
 
   requestId = requestAnimationFrame(Tick);
 }

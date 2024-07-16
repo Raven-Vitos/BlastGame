@@ -1,6 +1,6 @@
-import { Util } from './Helper.js'
+import { Helper } from './Helper.js'
 
-export const UIProgress = {
+export const ProgressPanel = {
     canvas: undefined,
     progress: undefined,
 
@@ -34,7 +34,7 @@ export const UIProgress = {
 
         this.progress.drawImage(this.image_st, 14, 60, 12, 23);
 
-        this.cur_value_progress = Util.easing(this.cur_value_progress, this.value_progress * 344, 0.2, deltaTime)
+        this.cur_value_progress = Helper.easing(this.cur_value_progress, this.value_progress * 344, 0.2, deltaTime)
         this.progress.drawImage(this.image_progress, 26, 60, this.cur_value_progress, 23);
 
         let value_x = 26 + this.cur_value_progress

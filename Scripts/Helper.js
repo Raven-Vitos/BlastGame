@@ -1,4 +1,4 @@
-export const Util = {
+export const Helper = {
   getRandomInt: function(min, max) {
     const minCeiled = Math.ceil(min);
     const maxFloored = Math.floor(max);
